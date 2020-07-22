@@ -14,7 +14,7 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(package-selected-packages (quote (jedi dired-subtree smex))))
+ '(package-selected-packages (quote (ace-mc jedi dired-subtree smex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -31,6 +31,8 @@
 (setq shell-command-switch "-ic")
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 (setq make-backup-files nil)
+
+;; Additional keybinding for easy line duplication
 (defun duplicate-line ()
   "Duplicates the current line"
   (interactive)
@@ -40,8 +42,24 @@
   (open-line 1)
   (next-line 1)
   (yank)
-)
+  )
 (global-set-key (kbd "C-d") 'duplicate-line)
+
+;; I use Mac and have switched (natively) which
+;; button acts as the 'Command' button
 (setq mac-command-modifier 'control)
+
+;; Python code completion
 (add-hook 'python-mode-hook 'jedi:setup)
+
+;; Show line numbers on all files
 (global-display-line-numbers-mode)
+
+;; Support for multiple cursors
+(require 'ace-mc)
+(global-set-key (kbd "C-)") 'ace-mc-add-multiple-cursors)
+
+;; Support for switching the cursor to previous window
+(global-set-key (kbd "C-x O") (lambda ()
+                                (interactive)
+                                (other-window -1)))
