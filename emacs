@@ -14,7 +14,7 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(package-selected-packages (quote (ace-mc jedi dired-subtree smex))))
+ '(package-selected-packages (quote (expand-region ace-mc jedi dired-subtree smex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -63,3 +63,6 @@
 (global-set-key (kbd "C-x O") (lambda ()
                                 (interactive)
                                 (other-window -1)))
+
+;; Support for expanding the selected region incrementally
+(global-set-key (kbd "C-@") 'er/expand-region)
