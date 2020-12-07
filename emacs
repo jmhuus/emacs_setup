@@ -14,7 +14,7 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(package-selected-packages (quote (expand-region ace-mc jedi dired-subtree smex))))
+ '(package-selected-packages (quote (tide expand-region ace-mc jedi dired-subtree smex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -47,7 +47,7 @@
 
 ;; I use Mac and have switched (natively) which
 ;; button acts as the 'Command' button
-(setq mac-command-modifier 'control)
+(setq ALT 'meta)
 
 ;; Python code completion
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -66,3 +66,18 @@
 
 ;; Support for expanding the selected region incrementally
 (global-set-key (kbd "C-@") 'er/expand-region)
+
+;; Typescript interactive development support
+;; tide setup
+(require 'tide)
+(defun setup-tide-mode ()
+  "Set up tide mode."
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1))
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+;;; end tide setup
