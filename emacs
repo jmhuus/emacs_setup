@@ -13,8 +13,13 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (tsdh-dark)))
- '(package-selected-packages (quote (tide expand-region ace-mc jedi dired-subtree smex))))
+ '(custom-enabled-themes (quote (spacemacs-dark)))
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(package-selected-packages
+   (quote
+    (spacemacs-theme tide expand-region ace-mc jedi dired-subtree smex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -81,3 +86,25 @@
 (add-hook 'before-save-hook 'tide-format-before-save)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 ;;; end tide setup
+
+(defun new-js-if ()
+  (interactive)
+  (insert "if () {\n"
+	  "} else {\n"
+	  "}")
+  (forward-line -2)
+  (forward-char 5))
+
+(defun new-ng-input ()
+  (interactive)
+  (insert "@Input some_variable: any;")
+  (forward-char -18)
+  (call-interactively (key-binding (kbd "C-@")))
+  (call-interactively (key-binding (kbd "C-@"))))
+
+(defun new-ng-output ()
+  (interactive)
+  (insert "@Output some_variable = new EventEmitter();")
+  (forward-char -25)
+  (call-interactively (key-binding (kbd "C-@")))
+  (call-interactively (key-binding (kbd "C-@"))))
