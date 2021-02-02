@@ -11,13 +11,11 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (spacemacs-dark)))
+ '(custom-enabled-themes '(spacemacs-dark))
  '(custom-safe-themes
-   (quote
-    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
  '(package-selected-packages
-   (quote
-    (spacemacs-theme tide expand-region ace-mc jedi dired-subtree smex))))
+   '(spacemacs-theme tide expand-region ace-mc jedi dired-subtree smex)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -34,6 +32,9 @@
 (setq shell-command-switch "-ic")
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 (setq make-backup-files nil)
+
+;; Set default 'Find File:'
+(setq default-directory "~/Documents")
 
 ;; Additional keybinding for easy line duplication
 (defun duplicate-line ()
@@ -96,7 +97,7 @@
   (forward-line -2)
   (forward-char 5))
 
-p(defun new-ng-input ()
+(defun new-ng-input ()
    (interactive)
    (insert "@Input some_variable: any;")
    (forward-char -18)
