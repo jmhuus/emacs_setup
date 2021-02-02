@@ -1,9 +1,7 @@
 (setq inhibit-startup-screen t)
 (tool-bar-mode -1)
-(package-initialize)
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,9 +48,11 @@
   )
 (global-set-key (kbd "C-d") 'duplicate-line)
 
-;; I use Mac and have switched (natively) which
-;; button acts as the 'Command' button
+;; These two settings are specific to MacOS
+;; Comment/uncomment appropriately
 (setq ALT 'meta)
+(setq mac-command-modifier 'control)
+
 
 ;; Python code completion
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -95,7 +95,7 @@
   (forward-line -2)
   (forward-char 5))
 
-(defun new-ng-input ()
+p(defun new-ng-input ()
   (interactive)
   (insert "@Input some_variable: any;")
   (forward-char -18)
@@ -105,6 +105,44 @@
 (defun new-ng-output ()
   (interactive)
   (insert "@Output some_variable = new EventEmitter();")
+  (forward-char -25)
+  (call-interactively (key-binding (kbd "C-@")))
+  (call-interactively (key-binding (kbd "C-@"))))
+
+(defun new-ng-output ()
+  (interactive)
+  (insert "<form>\n"
+"  <ul>\n"
+"    <li>\n"
+"      <label for="medium">Medium</label>\n"
+"      <select name="medium" id="medium">\n"
+"        <option value="Movies">Movies</option>\n"
+"        <option value="Series">Series</option>\n"
+"      </select>\n"
+"    </li>\n"
+"    <li>\n"
+"      <label for="name">Name</label>\n"
+"      <input type="text" name="name" id="name">\n"
+"    </li>\n"
+"    <li>\n"
+"      <label for="category">Category</label>\n"
+"      <select name="category" id="category">\n"
+"        <option value="Action">Action</option>\n"
+"        <option value="Science Fiction">Science Fiction</option>\n"
+"        <option value="Comedy">Comedy</option>\n"
+"        <option value="Drama">Drama</option>\n"
+"        <option value="Horror">Horror</option>\n"
+"        <option value="Romance">Romance</option>\n"
+"      </select>\n"
+"    </li>\n"
+"    <li>\n"
+"      <label for="year">Year</label>\n"
+"      <input type="text" name="year" id="year" maxlength="4">\n"
+"    </li>\n"
+"  </ul>\n"
+"  <button type="submit">Save</button>\n"
+"</form>\n"
+  )
   (forward-char -25)
   (call-interactively (key-binding (kbd "C-@")))
   (call-interactively (key-binding (kbd "C-@"))))
