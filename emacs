@@ -52,6 +52,7 @@
 ;; Comment/uncomment appropriately
 (setq ALT 'meta)
 (setq mac-command-modifier 'control)
+(setq mac-control-modifier 'control)
 
 
 ;; Python code completion
@@ -96,11 +97,11 @@
   (forward-char 5))
 
 p(defun new-ng-input ()
-  (interactive)
-  (insert "@Input some_variable: any;")
-  (forward-char -18)
-  (call-interactively (key-binding (kbd "C-@")))
-  (call-interactively (key-binding (kbd "C-@"))))
+   (interactive)
+   (insert "@Input some_variable: any;")
+   (forward-char -18)
+   (call-interactively (key-binding (kbd "C-@")))
+   (call-interactively (key-binding (kbd "C-@"))))
 
 (defun new-ng-output ()
   (interactive)
@@ -109,40 +110,39 @@ p(defun new-ng-input ()
   (call-interactively (key-binding (kbd "C-@")))
   (call-interactively (key-binding (kbd "C-@"))))
 
-(defun new-ng-output ()
+(defun new-ng-form ()
   (interactive)
-  (insert "<form>\n"
-"  <ul>\n"
-"    <li>\n"
-"      <label for="medium">Medium</label>\n"
-"      <select name="medium" id="medium">\n"
-"        <option value="Movies">Movies</option>\n"
-"        <option value="Series">Series</option>\n"
-"      </select>\n"
-"    </li>\n"
-"    <li>\n"
-"      <label for="name">Name</label>\n"
-"      <input type="text" name="name" id="name">\n"
-"    </li>\n"
-"    <li>\n"
-"      <label for="category">Category</label>\n"
-"      <select name="category" id="category">\n"
-"        <option value="Action">Action</option>\n"
-"        <option value="Science Fiction">Science Fiction</option>\n"
-"        <option value="Comedy">Comedy</option>\n"
-"        <option value="Drama">Drama</option>\n"
-"        <option value="Horror">Horror</option>\n"
-"        <option value="Romance">Romance</option>\n"
-"      </select>\n"
-"    </li>\n"
-"    <li>\n"
-"      <label for="year">Year</label>\n"
-"      <input type="text" name="year" id="year" maxlength="4">\n"
-"    </li>\n"
-"  </ul>\n"
-"  <button type="submit">Save</button>\n"
-"</form>\n"
-  )
-  (forward-char -25)
-  (call-interactively (key-binding (kbd "C-@")))
-  (call-interactively (key-binding (kbd "C-@"))))
+  (insert "<!-- Ensure that app.module.ts has imported FormsModule from '@angular/forms' -->\n"
+	  "<form #mediaItemForm=\"ngForm\" (onSubmit)=\"mediaItemForm.value\">\n"
+	  "  <ul>\n"
+	  "    <li>\n"
+	  "      <label for=\"medium\">Medium</label>\n"
+	  "      <select name=\"medium\" id=\"medium\">\n"
+	  "        <option value=\"Movies\">Movies</option>\n"
+	  "        <option value=\"Series\">Series</option>\n"
+	  "      </select>\n"
+	  "    </li>\n"
+	  "    <li>\n"
+	  "      <label for=\"name\">Name</label>\n"
+	  "      <input type=\"text\" name=\"name\" id=\"name\">\n"
+	  "    </li>\n"
+	  "    <li>\n"
+	  "      <label for=\"category\">Category</label>\n"
+	  "      <select name=\"category\" id=\"category\">\n"
+	  "        <option value=\"Action\">Action</option>\n"
+	  "        <option value=\"Science Fiction\">Science Fiction</option>\n"
+	  "        <option value=\"Comedy\">Comedy</option>\n"
+	  "        <option value=\"Drama\">Drama</option>\n"
+	  "        <option value=\"Horror\">Horror</option>\n"
+	  "        <option value=\"Romance\">Romance</option>\n"
+	  "      </select>\n"
+	  "    </li>\n"
+	  "    <li>\n"
+	  "      <label for=\"year\">Year</label>\n"
+	  "      <input type=\"text\" name=\"year\" id=\"year\" maxlength=\"4\">\n"
+	  "    </li>\n"
+	  "  </ul>\n"
+	  "  <button type=\"submit\">Save</button>\n"
+	  "</form>\n"
+	  )
+  (forward-char -25))
