@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: cmake_link_lib_rel
+# key: cmake_link_lib_rel
+# --
+# Link library - relative
+add_subdirectory(${1:directory_name})
+target_link_libraries(\$\{PROJECT_NAME\} ${2:library_name})$0

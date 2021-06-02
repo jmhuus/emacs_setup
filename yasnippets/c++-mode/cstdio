@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cstdio
+# key: cstdio
+# --
+#include <cstdio>

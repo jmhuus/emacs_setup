@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: include_stmt
+# key: incld
+# --
+#include <$0>

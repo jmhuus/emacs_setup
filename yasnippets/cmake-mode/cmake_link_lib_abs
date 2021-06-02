@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: cmake_link_lib_abs
+# key: cmake_link_lib_abs
+# --
+# Link library - absolute
+add_subdirectory(${1:directory_name})
+target_link_libraries(\$\{PROJECT_NAME\} ${2:library_name})
+target_include_directories(\$\{PROJECT_NAME\} PRIVATE $1)

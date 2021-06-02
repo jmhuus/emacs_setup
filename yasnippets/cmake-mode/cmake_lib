@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cmake_lib
+# key: cmake_lib
+# --
+add_library(${1:library_name} ${2:src_file_name}.cpp)$0

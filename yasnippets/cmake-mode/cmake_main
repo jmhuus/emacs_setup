@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: cmake_main
+# key: cmake_main
+# --
+cmake_minimum_required(VERSION 3.16.0)
+
+project(${1:proj_name})
+
+add_executable(\$\{PROJECT_NAME\} ${2:main}.cpp)$0

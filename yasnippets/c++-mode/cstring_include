@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cstring include
+# key: cstr
+# --
+#include <cstring>

@@ -1,0 +1,7 @@
+# -*- mode: c++-mode -*-
+# name: for_each_item_in
+# key: fore
+# --
+for(auto ${1:i} : ${2:array}) {
+  $0
+}
