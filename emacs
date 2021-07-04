@@ -19,7 +19,7 @@
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
    (quote
-    (elpy yasnippet-snippets yasnippet magit tide expand-region ace-mc smex spacemacs-theme dired-subtree)))
+    (dockerfile-mode protobuf-mode bazel elpy yasnippet yasnippet-snippets magit tide expand-region ace-mc smex spacemacs-theme dired-subtree)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -36,11 +36,10 @@
 ;; Disable Emacs' start-up screen
 (setq inhibit-startup-screen t)
 
-(add-to-list 'exec-path "/usr/local/bin")
+;; ;; Automatic closing brackets, parentheses, etc.
+(electric-pair-mode 1)
 
-(set-keyboard-coding-system nil)
-
-;; Add smex to M-x for autocompletion Meta commands
+;; ;; Add smex to M-x for autocompletion Meta commands
 (global-set-key (kbd "M-x") 'smex)
 
 ;; Config Dired-subtree - used for browsing directories/files
@@ -60,9 +59,9 @@
 
 ;; These two settings are specific to MacOS
 ;; Comment/uncomment appropriately
-(setq ALT 'meta)
-(setq mac-command-modifier 'control)
-(setq mac-control-modifier 'control)
+;; (setq ALT 'meta)
+;; (setq mac-command-modifier 'control)
+;; (setq mac-control-modifier 'control)
 
 ;; Show line numbers on all files
 (global-display-line-numbers-mode)
@@ -79,26 +78,15 @@
 ;; Support for expanding the selected region incrementally
 (global-set-key (kbd "C-@") 'er/expand-region)
 
-;; ==== Tide setup ====
-;; Typescript interactive development support
+;; Tide setup
 (require 'tide)
-(defun setup-tide-mode ()
-  "Set up tide mode."
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1))
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-;;; end tide setup
 
 ;;; Yasnippet for code completion
 (yas-global-mode 1)
 (add-hook 'yas-minor-hook (lambda ()
 			    (yas-activate-extra-mode 'fundamental-mode)))
 (elpy-enable) ;; required for python-mode.class snippet to work
+(setq elpy-rpc-python-command "/usr/bin/python3")
 
 ;; Additional keybinding for easy line duplication
 (defun duplicate-line ()
@@ -108,7 +96,7 @@
   (kill-line)
   (yank)
   (open-line 1)
-  (next-line 1)
+  (forward-line 1)
   (yank)
   )
 (global-set-key (kbd "C-d") 'duplicate-line)
