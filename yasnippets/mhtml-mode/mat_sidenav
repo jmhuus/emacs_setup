@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: mat_sidenav
+# key: mat_sidenav
+# --
+<mat-sidenav-container
+    class="example-container"
+    (backdropClick)="sidenav.close()">
+
+    <!-- Navigation Sidebar -->
+    <mat-sidenav #sidenav
+                 class="example-sidenav"
+    	         (keydown.escape)="sidenav.close()"
+    	         disableClose>
+        <mat-selection-list #project [multiple]="false">
+            <mat-list-option
+                *ngFor="let menuItem of menuItems"
+    	        [value]="menuItem"
+    	        (click)="selectMenuItem(menuItem)"
+		[routerLink]="menuItem.route">
+    	        {{menuItem}}
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-sidenav>
+
+    ${0:<!-- Main content goes here -->}
+
+</mat-sidenav-container>
