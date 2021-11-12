@@ -16,6 +16,7 @@ Steps:
     * M-x list-packages > C-s yasnippet > install this package
     * M-x list-packages > C-s yasnippet-snippets > install this package
     * M-x list-packages > C-s elpy > install this package
+    * M-x list-packages > C-s magit > install this package
 4. Setup Yasnippet
    * Navigate to .emacs.d directory and add a folder named 'snippets/'.
    * Place the various '...-mode/' (such as c++-mode) directories into the new 'snippets/' directory.
