@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: gdb-multiarch
+# key: gdbm
+# --
+gdb-multiarch $0

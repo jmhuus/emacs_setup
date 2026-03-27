@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pio_clangd_compile
+# key: pioclangcomp
+# --
+platformio run --target compiledb$0

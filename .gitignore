@@ -1,0 +1,10 @@
+eln-cache/
+init.elc
+session*
+smex-items
+auto-save-list/
+elpa/
+.venv/
+transient/
+places
+.recentf

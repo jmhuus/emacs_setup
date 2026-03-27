@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: target_extended_remote
+# key: tgter
+# --
+target extended-remote :$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pio_source
+# key: piosrc
+# --
+source /home/jordan/.platformio/penv/bin/activate$0

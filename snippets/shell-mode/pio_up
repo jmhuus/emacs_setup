@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pio up
+# key: pioup
+# --
+pio run -t upload

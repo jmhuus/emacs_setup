@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pio_device_monitor
+# key: piodm
+# --
+pio device monitor -b 38400$0

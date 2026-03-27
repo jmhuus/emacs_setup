@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+#+TITLE: $1
+#+AUTHOR: Jordan Huus
+$0

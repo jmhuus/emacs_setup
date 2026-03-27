@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: openocd_debug_stm32f1
+# key: opengdb
+# --
+openocd -f interface/stlink.cfg -f target/stm32f1x.cfg$0

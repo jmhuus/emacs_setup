@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pio_debug
+# key: piogdb
+# --
+pio debug --interface=gdb -x .pioinit$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pio_debug_emacs
+# key: piogdbe
+# --
+/home/jordan/.platformio/penv/bin/pio debug --interface=gdb -x .pioinit -i=mi$0

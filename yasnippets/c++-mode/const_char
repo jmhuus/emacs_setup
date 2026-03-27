@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: const char
-# key: cchar
-# --
-const char*$0

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: rtos_task
+# key: rtask
+# --
+/*
+ * Task that $1.
+ */
+static void $2(void *args __attribute__((unused))) {
+  for (;;) {
+    $3gpio_toggle(GPIOC, GPIO13);
+    $4vTaskDelay(pdMS_TO_TICKS(500));
+  }
+}$0

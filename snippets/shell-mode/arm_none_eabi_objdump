@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: arm_none_eabi_objdump
+# key: aobjd
+# --
+arm-none-eabi-objdump -D $0 > objdump.txt
